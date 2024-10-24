@@ -1,0 +1,100 @@
+/* Стили меню влияют на все страницы кроме главной */
+
+/* Подключаем файл с переменными CSS */
+@import '../css/vars.css';
+/* Подключаем файл для сетки и выравнивания элементов */
+@import '../css/grid.css';
+
+@font-face {
+	font-family: masonchronicles-g;
+	src: url(../fonts/masonchronicles.ttf);
+}
+
+.top-line {
+	font-family: masonchronicles-g, sans-serif;
+	font-size: 18px;
+	padding: 3.2em 0;
+	margin: 0 auto;
+	width: 100%;
+	max-width: 1240px;
+	z-index: 2;
+	position: fixed;
+	
+}
+
+.main-menu {
+	display: flex; /* Используем Flexbox */
+	justify-content: space-around; /* Распределяем пространство между элементами */
+	flex-wrap: wrap; /* Позволяем элементам переноситься на следующую строку */
+}
+
+.main-menu li {
+	list-style-type: none;
+	display: inline-block;
+}
+
+.main-menu li > * {
+	color: var(--gray-color);
+	text-transform: uppercase;
+	font-weight: 700;
+	text-decoration: none;
+	font-size: .725em;
+	letter-spacing: .25em;
+	position: relative;
+}
+
+.main-menu li > *::before,
+.main-menu li > *::after {
+	content: '';
+	display: inline-block;
+	height: 2px;
+	background-color: var(--yellow-color);
+	width: 11.25px;
+	vertical-align: middle;
+	top: -1px;
+	left: -1.5px;
+	position: relative;
+	border-radius: 10em;
+	margin: 0 7.25px;
+	visibility: hidden;
+}
+
+.main-menu li.active > *,
+.main-menu li:hover > * {
+	color: var(--white-color);
+}
+
+.main-menu li.active > *::before,
+.main-menu li:hover > *::before,
+.main-menu li.active > *::after,
+.main-menu li:hover > *::after {
+	visibility: visible;
+}
+
+.logo {
+	display: block;
+}
+
+.logo img {
+	display: block;
+	width: 10.5em;
+}
+
+.logo, .main-menu, .button {
+	pointer-events: auto;
+}
+
+@media (max-width: 720px) {
+	.main-menu {
+		flex-direction: column; /* Переключаем на вертикальное выравнивание */
+		align-items: center; /* Центрируем элементы */
+	}
+
+	.top-line {
+		padding: 2em 0; /* Уменьшаем отступы */
+	}
+
+	.main-menu li {
+		margin: 0.5em 0; /* Увеличиваем отступы между элементами */
+	}
+}

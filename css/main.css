@@ -1,0 +1,391 @@
+@import '../css/vars.css';
+/* Подключаем файл с переменными CSS */
+@import '../css/grid.css';
+/* Подключаем файл для сетки и выравнивания элементов */
+
+* {
+	/* Убираем стандартные отступы и поля у всех элементов */
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+html,
+body {
+	/* Устанавливаем высоту для всей страницы и фона */
+	height: 100%;
+	background-color: #101725;
+	color: var(--white-color);
+}
+
+/* Подключаем шрифты */
+@font-face {
+	font-family: masonchronicles-g;
+	src: url(../fonts/masonchronicles.ttf);
+}
+
+@font-face {
+	font-family: raleway-g;
+	src: url(../fonts/raleway-cyrillic.ttf);
+}
+
+@font-face {
+	font-family: GentiumPlus-g;
+	src: url(../fonts/GentiumPlus-Regular.ttf);
+}
+
+@font-face {
+	font-family: GentiumPlus-g;
+	src: url(../fonts/GentiumPlus-Bold.ttf);
+	font-weight: 700;
+}
+
+body {
+	/* Устанавливаем основной шрифт и размер текста */
+	font-size: 18px;
+	font-family: masonchronicles-g, sans-serif;
+}
+
+.slider {
+	height: 100%;
+	/* Задаем высоту слайдера */
+}
+
+.slider__layer {
+	/* Абсолютное позиционирование слоев слайдера для создания эффекта параллакса */
+	position: absolute;
+	inset: 0;
+	/* Изображение на всю ширину и всю высоту */
+	background-size: cover;
+	/* Масштабируем фон слоя на весь экран */
+	background-position: center;
+	will-change: transform;
+	/* Оптимизация для анимации, динамическое изменение слайдов */
+}
+
+/* Стилизация активного слайда */
+.slider__item {
+	overflow: hidden;
+	transform: scale(1.25) !important;
+	/* Увеличиваем изображение при анимации */
+	transition: 2s ease !important;
+	/* Плавная анимация трансформации */
+}
+
+/* Стилизация неактивного слайда */
+.slider__item:not(.swiper-slide-active) {
+	/* Сброс масштаба для неактивных слайдов */
+	transform: scale(1) !important;
+}
+
+/* Контейнер для элементов UI элементов */
+.slider-ui {
+	/* Абсолютное позиционирование UI элементов слайдера */
+	position: absolute;
+	z-index: 10;
+	inset: 0;
+}
+
+.top-line {
+	/* Отступы сверху и снизу для верхней линии */
+	padding: 3.2em 0;
+}
+
+.logo {
+	display: block;
+}
+
+.logo img {
+	/* Размер логотипа */
+	display: block;
+	width: 10.5em;
+}
+
+.main-menu li {
+	/* Убираем маркеры списка и делаем элементы меню инлайновыми */
+	list-style-type: none;
+	display: inline-block;
+}
+
+.main-menu li>* {
+	/* Стили для элементов меню: цвет, регистр, шрифт и позиционирование */
+	color: var(--gray-color);
+	text-transform: uppercase;
+	font-weight: 700;
+	text-decoration: none;
+	font-size: .725em;
+	letter-spacing: .25em;
+	position: relative;
+}
+
+.main-menu li>*::before,
+.main-menu li>*::after {
+	/* Декоративные линии перед и после текста */
+	content: '';
+	display: inline-block;
+	height: 2px;
+	background-color: var(--yellow-color);
+	width: 11.25px;
+	vertical-align: middle;
+	top: -1px;
+	left: -1.5px;
+	position: relative;
+	border-radius: 10em;
+	margin: 0 7.25px;
+	visibility: hidden;
+}
+
+.main-menu li.active>*,
+.main-menu li:hover>* {
+	/* Стили для активных и ховер-элементов меню */
+	color: var(--yellow-color);
+}
+
+.main-menu li.active>*::before,
+.main-menu li:hover>*::before,
+.main-menu li.active>*::after,
+.main-menu li:hover>*::after {
+	/* Отображаем линии для активных или ховер-элементов меню */
+	visibility: visible;
+}
+
+.button {
+	/* Стили для кнопок: отступы, цвет, фон, рамка и текст */
+	padding: 1.05em 2.6em;
+	color: var(--white-color);
+	background-color: var(--yellow-color);
+	border: 1.5px solid transparent;
+	border-radius: 10em 0 10em 10em;
+	font-weight: 700;
+	text-decoration: none;
+	letter-spacing: .21em;
+	text-transform: uppercase;
+	cursor: pointer;
+}
+
+.button--main {
+	/* Стили для основной кнопки на главной странице */
+	margin-top: 3em;
+	padding: 1.6em 3.5em;
+	box-shadow: 0px 20px 20px rgba(0, 0, 0, 0.5);
+	animation: glow 1500ms infinite ease-in-out;
+}
+
+/* Модальное окно формы внизу страницы */
+.modal {
+    display: none; /* Скрыта по умолчанию */
+    position: fixed;
+	top: 80%;
+    left: 50%;
+	transform: translate(-50%, -50%); /* Центрирование по горизонтали и вертикали */
+    width: 30%;
+    background-color: white;
+	border-radius: 10px;
+    padding: 20px; /* Увеличенные внутренние отступы */
+    border-top: 1px solid #ccc; /* Граница сверху */
+    z-index: 1000; /* Высокий приоритет отображения */
+    box-shadow: 0 -3px 10px rgba(0, 0, 0, 0.445); /* Тень для формы */
+    
+}
+
+/* Показ формы, когда добавлен класс show */
+.modal.show {
+    display: block;
+}
+
+/* Стили для кнопки закрытия (крестик) */
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: gray;
+}
+
+/* Стили заголовка формы */
+.form-header {
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333; /* Цвет заголовка */
+}
+
+/* Стили для меток формы */
+.modal label {
+    color: #333; /* Цвет меток */
+    font-family: raleway-g, sans-serif;
+    font-size: 16px;
+    display: block;
+    margin-bottom: 5px;
+}
+
+/* Стили для полей ввода */
+.modal input {
+    font-family: raleway-g, sans-serif;
+    font-size: 14px;
+    color: #333; /* Цвет текста */
+    padding: 10px;
+    margin-bottom: 10px;
+    width: 50%; /* Поля занимают всю ширину формы */
+    border: 1px solid #ccc; /* Рамка по умолчанию */
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+/* Жёлтая рамка при фокусе на поле */
+.modal input:focus {
+    outline: none;
+    border: 2px solid #dea503; /* Жёлтая рамка */
+    box-shadow: 0 0 5px rgba(255, 208, 0, 0.486); /* Тень вокруг поля */
+}
+
+/* Стили для кнопки отправки формы */
+.modal button[type="submit"] {
+    background-color: white; 
+    color: #333; /* Чёрный цвет текста */
+    border: 2px solid #dea503; /* Желтая рамка */
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+	text-transform: uppercase;
+    width: 30%; /* Кнопка по ширине формы */
+	transition: background-color 0.3s ease, color 0.3s ease; /* Плавный переход для фона и текста */
+    
+}
+
+/* Изменение цвета кнопки при наведении */
+.modal button[type="submit"]:hover {
+    background-color: #f1c40f; /* Тёмно-жёлтый цвет при наведении */
+	color: white; /* Белый текст при наведении */
+}
+
+/* Стиль кнопки при нажатии */
+.modal button[type="submit"]:active {
+    background-color: #dea503; /* Желтый фон при нажатии */
+    color: white; /* Белый текст при нажатии */
+}	
+
+
+@keyframes glow {
+	0% {
+		background: #dea503;
+		box-shadow: 0px 0px 3px #dea503;
+	}
+
+	50% {
+		background: var(--yellow-color);
+		box-shadow: 0px 0px 40px var(--yellow-color);
+	}
+
+	100% {
+		background: #dea503;
+		box-shadow: 0px 0px 3px #dea503;
+	}
+}
+
+.button:hover {
+	/* Изменение фона при наведении */
+	background-color: #9c7b21;
+}
+
+.header-wrapper {
+	/* Обертка, которая использует Flexbox для выравнивания */
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+}
+
+.main-content {
+	/* Стили для основного контента */
+	flex: 1;
+	text-align: center;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	line-height: 1.2;
+	flex-direction: column;
+
+}
+
+.main-content__slide {
+	/* Абсолютное позиционирование для каждого слайда */
+	position: absolute;
+
+}
+
+.main-content h1 {
+	/* Стили для заголовка: размер, регистр, толщина шрифта */
+	font-size: calc(var(--index) * 7);
+	text-transform: uppercase;
+	font-weight: 900;
+}
+
+.main-content p {
+	/* Стили для параграфов: максимальная ширина, толщина шрифта и межстрочный интервал */
+	max-width: 760px;
+	font-weight: 600;
+	line-height: 1.2;
+	display: inline-block;
+	font-family: raleway-g, sans-serif;
+	font-size: 26px;
+	text-shadow: 25px 0 35px rgba(0 0 0 / .6);
+}
+
+.header-bottom {
+	/* Минимальная высота нижней части */
+	min-height: 120px;
+}
+
+.letters .letter {
+	/* Стили для букв в анимации заголовков: тени, позиционирование и анимация */
+	text-shadow: 25px 0 35px rgba(0 0 0 / .6);
+	position: relative;
+	margin-left: calc(var(--index) * -1.0);
+	right: calc(var(--index) * -1.0);
+	opacity: 0;
+	top: -5em;
+	transition: opacity var(--transition), top var(--transition);
+}
+
+.main-content__slide.active .letter {
+	/* Анимация появления букв, когда слайд активен */
+	opacity: 1;
+	top: 0;
+}
+
+.main-content__slide.active+* .letter {
+	/* Анимация исчезновения букв для следующих слайдов */
+	top: 5em;
+}
+
+.main-content__info {
+	top: -18em;
+	position: relative;
+	opacity: 0;
+	transition: opacity 1s ease, top 1.25s ease;
+}
+
+.main-content__slide.active .main-content__info {
+	opacity: 1;
+	top: 0;
+}
+
+.main-content__slide:has(* + .active .main-content__info),
+.main-content__slide.active+* .main-content__info {
+	top: 18em;
+}
+
+.slider-ui {
+	pointer-events: none;
+}
+
+.logo,
+.main-menu,
+.button {
+	pointer-events: auto;
+}

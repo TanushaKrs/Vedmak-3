@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<title>Ведьмак 3 — Об игре</title>
+
+	<link rel="icon" href="img/logo.png">
+
+	<!-- Подключение библиотек GSAP для анимации -->
+	<script src="libs/gsap/gsap.min.js" defer></script>
+	<script src="libs/gsap/ScrollTrigger.min.js" defer></script>
+	<script src="libs/gsap/ScrollSmoother.min.js" defer></script>
+
+	<!-- Подключение стилей -->
+	<link rel="stylesheet" href="css/about.css">
+	<link rel="stylesheet" href="css/vars.css">
+	<link rel="stylesheet" href="css/grid.css">
+	<link rel="stylesheet" href="css/mainmenu.css">
+	<link rel="stylesheet" href="css/preloader.css">
+
+	<!-- Подключение основного скрипта страницы -->
+	<script src="js/about.js" defer></script>
+
+</head>
+
+<body>
+
+	<!-- Прелоадер -->
+	<div id="preloader">
+	    <div class="preloader-logo">
+	        <img src="img/logo preloader.png" alt="Логотип Ведьмак 3">
+	    </div>
+	</div>
+
+	<div class="wrapper"> <!-- Обертка для контента -->
+
+		<div class="container"> <!-- Контейнер для верхней части страницы -->
+			<div class="top-line"> <!-- Верхний header -->
+				<div class="row"> <!-- Строка для размещения элементов в меню -->
+					<div class="col col--center">
+						<a href="index.html" class="logo"> <!-- Логотип с ссылкой на главную страницу -->
+							<img src="img/logo-light.png" alt="Logo">
+						</a>
+					</div>
+
+					<div class="col col--center col--right col--lead"> <!-- Правый блок меню -->
+						<nav class="main-menu"> <!-- Главное меню навигации -->
+							<ul>
+								<li><a href="about.html" target="_blank">Об игре</a></li>
+								<li><a href="characters.html" target="_blank">Персонажи</a></li>
+								<li><a href="gallery.html" target="_blank">3D галерея</a></li>
+								<li><a href="openworld.html" target="_blank">Открытый мир</a></li>
+							</ul>
+						</nav>
+					</div>
+
+				</div>
+			</div>
+		</div>
+
+		<div class="content"> <!-- Основной контент страницы -->
+			<header class="hero-section"> <!-- Секция с заголовком -->
+				<img data-speed=".6" class="hero" src="img/Hero Header.png" alt="Alt"> <!-- Фоновое изображение -->
+				<div class="container">
+					<div data-speed=".75" class="main-header">
+						<h2 class="main-title">Открой легенду</h2> <!-- Заголовок секции -->
+					</div>
+				</div>
+			</header>
+
+			<div class="portfolio"> <!-- Портфолио-секция -->
+				<div class="container">
+					<main class="gallery"> <!-- Основной контент галереи -->
+
+						<div data-speed=".9" class="gallery__left"> <!-- Левый блок галереи -->
+
+							<img class="gallery__item" src="img/work/game/1s.jpg" alt="Alt">
+							<!-- Изображение галереи -->
+							<img class="gallery__item" src="img/work/game/2s.jpg" alt="Alt">
+
+							<div class="text-block gallery__item"> <!-- Блок текста в галерее -->
+								<h2 class="text-block__h">Погрузись в мир, где каждый твой выбор важен</h2>
+								<p class="text-block__p">Это история охотника на чудовищ, вынужденного противостоять не
+									только силам зла, но и своим внутренним демонам.
+									Вы отправитесь в путешествие по миру, разрываемому войной, и встретите множество
+									ярких персонажей. Каждый ваш выбор будет иметь
+									последствия, влияя на сюжет и финал истории. Погрузитесь в мир Ведьмака, полный
+									магии, опасностей и интриг.</p>
+							</div>
+
+							<img class="gallery__item" src="img/work/game/3s.png" alt="Alt">
+
+						</div>
+
+						<div data-speed="1.1" class="gallery__right"> <!-- Правый блок галереи -->
+
+							<div class="text-block gallery__item">
+								<h2 class="text-block__h">Это не просто игра, это шедевр, удостоенный множества наград
+								</h2>
+
+								<p class="text-block__p">Не упусти шанс стать частью легенды. Купи «Ведьмак 3: Дикая
+									Охота» сейчас и начни своё незабываемое путешествие. Скачай игру прямо сейчас или
+									закажи физическое издание и получи доступ к дополнительным материалам</p>
+							</div>
+
+							<img class="gallery__item" src="img/work/game/4s.jpg" alt="Alt">
+							<img class="gallery__item" src="img/work/game/5s.jpg" alt="Alt">
+							<img class="gallery__item" src="img/work/game/6s.jpg" alt="Alt">
+
+						</div>
+
+					</main>
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+</body>
+
+</html>

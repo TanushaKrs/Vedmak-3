@@ -1,0 +1,42 @@
+/* Стили для прелоадера */
+#preloader {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: #1c1c1d; 
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	z-index: 1000; /* Прелоадер всегда сверху */
+}
+
+.preloader-logo img {
+	width: 200px;
+	height: 200px;
+	animation: pulse 2s infinite;
+	/* Анимация пульсации */
+	/* Добавляем эффект свечения на логотип */
+	filter: drop-shadow(0 0 4.5px rgba(255, 255, 255, 0.226));
+}
+
+/* Пульсация: логотип увеличивается и уменьшается */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2); /* Увеличиваем логотип до 110% */
+    }
+    100% {
+        transform: scale(1); /* Возвращаем логотип к исходному размеру */
+	}
+}
+
+/* Скрытие прелоадера после загрузки страницы */
+body.loaded #preloader {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease;
+}

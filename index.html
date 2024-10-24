@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Ведьмак 3 — Главная</title>
+
+	<link rel="icon" href="img/logo.png">
+	
+	<link rel="stylesheet" href="libs/swiper/swiper-bundle.min.css">
+	<script src="libs/swiper/swiper-bundle.min.js" defer></script>
+
+	<link rel="stylesheet" href="css/main.css">
+	<link rel="stylesheet" href="css/preloader.css">
+	<script src="js/main.js" defer></script>
+	
+</head>
+<body>
+
+	<!-- Прелоадер -->
+	<div id="preloader">
+	    <div class="preloader-logo">
+	        <img src="img/logo preloader.png" alt="Логотип Ведьмак 3">
+	    </div>
+	</div>
+
+	<div class="swiper slider">
+
+		<div class="slider-ui"> <!-- Контейнер для элементов UI -->
+
+			<div class="container header-wrapper">
+
+				<div class="top-line"> <!-- Верхний header -->
+
+					<div class="row"> <!-- Меню -->
+			
+						<div class="col col--center">
+							<a href="#" class="logo">
+								<img src="img/logo-light.png" alt="Logo">
+							</a>
+						</div>
+			
+						<div class="col col--center col--right col--lead">
+							<nav class="main-menu">
+								<ul>
+									<li><a href="about.html" target="_blank">Об игре</a></li>
+									<li><a href="characters.html" target="_blank">Персонажи</a></li>
+									<li><a href="gallery.html" target="_blank">3D галерея</a></li>
+									<li><a href="openworld.html" target="_blank">Открытый мир</a></li>
+								</ul>
+							</nav>
+						</div>
+			
+					</div>
+			
+				</div>
+
+				<div class="main-content">
+
+					<div class="main-content__slide active">
+						<h1 class="letters">ВЕДЬМАК 3</h1>
+						<div class="main-content__info">
+							<p>Погрузись в захватывающую историю, полную опасностей и приключений с Геральдом из Ривии</p><br>
+							<button class="button button--main" id="buy-now-btn">Купить сейчас</button>
+						</div>
+					</div>
+
+					<div class="main-content__slide">
+						<h1 class="letters">Дикая Охота</h1> <!-- Заголовок первого слайда -->
+						<div class="main-content__info">
+							<!-- Параграф под заголовком -->
+							<p>Открой для себя мир, полный опасностей, магии и древних тайн. Присоединяйся к миллионам игроков, которые уже отправились в своё самое великое путешествие</p><br>
+							<button class="button button--main" onclick="window.open('https://www.youtube.com/watch?v=pFgsKiJ4h5c&list=LL&index=14','_blank');">Смотреть трейлер</button>
+						</div>
+					</div>
+
+				</div>
+
+				<div class="header-bottom">
+					
+				</div>
+
+			</div>
+
+		</div>
+
+		<div class="swiper-wrapper"> 
+
+			<!-- Контейнер для всех слайдов -->
+			<div class="swiper-slide slider__item">
+				<!-- Первый слайд с изображениями -->
+				<div class="slider__layer" data-swiper-parallax="35%" style="background-image: url(img/slides/slider-1-back.jpg);"></div>
+				<div class="slider__layer" data-swiper-parallax="25%" style="background-image: url(img/slides/slider-1-midlle.png);"></div>
+				<div class="slider__layer" data-swiper-parallax="14%" style="background-image: url(img/slides/slider-1-front.png);"></div>
+			</div>
+			<div class="swiper-slide slider__item">
+				<!-- Второй слайд с изображениями -->
+				<div class="slider__layer" data-swiper-parallax="35%" style="background-image: url(img/slides/slider-2-back.jpg);"></div>
+				<div class="slider__layer" data-swiper-parallax="25%" style="background-image: url(img/slides/slider-2-midlle.png);"></div>
+				<div class="slider__layer" data-swiper-parallax="14%" style="background-image: url(img/slides/slider-2-front.png);"></div>
+			</div>
+
+		</div>
+
+	</div>
+
+	<div id="buy-form" class="modal">
+		<button class="close-btn" onclick="closeForm()">&#10006;</button>
+		<h2 class="form-header">Заполните форму, чтобы купить игру!</h2>
+		<form id="purchase-form">
+			<label for="name">Имя:</label>
+			<input type="text" id="name" name="name" placeholder="Введите ваше имя" required>
+	
+			<label for="email">Email:</label>
+			<input type="email" id="email" name="email" placeholder="Ваш email" required>
+	
+			<label for="phone">Телефон:</label>
+			<input type="tel" id="phone" name="phone" placeholder="(+375)(___)(_________)" required pattern="[+375]{4}[0-9]{9}">
+	
+			<button type="submit">Купить сейчас</button>
+		</form>
+	</div>
+	
+	
+	</body>
+</html>

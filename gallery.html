@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<title>Ведьмак 3 — Галерея</title>
+
+	<link rel="icon" href="img/logo.png">
+	
+	<!-- Подключение стилей Swiper для карусели -->
+	<link rel="stylesheet" href="libs/swiper/swiper-bundle.min.css">
+	<!-- Подключение скриптов Swiper и Particles.js, отложенных до загрузки страницы -->
+	<script src="libs/swiper/swiper-bundle.min.js" defer></script>
+	<script src="libs/particles/particles.js" defer></script>
+	<script src="js/gallery.js" defer></script>
+
+	<!-- Подключение стилей для страницы -->
+	<link rel="stylesheet" href="css/gallery.css">
+	<link rel="stylesheet" href="css/vars.css">
+	<link rel="stylesheet" href="css/grid.css">
+	<link rel="stylesheet" href="css/mainmenu.css">
+	<link rel="stylesheet" href="css/preloader.css">
+
+</head>
+
+<body>
+	<!-- Прелоадер -->
+	<div id="preloader">
+	    <div class="preloader-logo">
+	        <img src="img/logo preloader.png" alt="Логотип Ведьмак 3">
+	    </div>
+	</div>
+
+		<div class="container">
+			<div class="top-line"> <!-- Верхний header -->
+				<div class="row"> <!-- Меню -->
+					<div class="col col--center">
+						<a href="index.html" class="logo">
+							<img src="img/logo-light.png" alt="Logo">
+						</a>
+					</div>
+				
+					<div class="col col--center col--right col--lead">
+						<nav class="main-menu">
+							<ul>
+								<li><a href="about.html" target="_blank">Об игре</a></li>
+									<li><a href="characters.html" target="_blank">Персонажи</a></li>
+									<li><a href="gallery.html" target="_blank">3D галерея</a></li>
+									<li><a href="openworld.html" target="_blank">Открытый мир</a></li>
+							</ul>
+						</nav>
+					</div>
+				
+				</div>
+			</div>
+		</div>
+
+		<!-- Создание контейнера Swiper для слайдера -->
+	<div class="swiper slider">
+		<div class="swiper-wrapper slider__wrapper">
+
+			<!-- Первый слайд -->
+			<div class="swiper-slide slider__item">
+				<!-- Слои с изображением, с параллакс-эффектом -->
+				<div class="slider__layer" data-swiper-parallax="35%" style="background-image: url(img/screen-1/layer-back.jpg);"></div>
+				<div class="slider__layer" data-swiper-parallax="25%" style="background-image: url(img/screen-1/layer-middle.png);"></div>
+				<!-- Слой с анимацией частиц, с параллакс-эффектом -->
+				<canvas class="particles slider__layer" data-swiper-parallax="18%" data-color="#BE9164"></canvas>
+				<!-- Слой с изображением, с параллакс-эффектом -->
+				<div class="slider__layer" data-swiper-parallax="14%" style="background-image: url(img/screen-1/layer-front.png);"></div>
+			</div>
+
+			<!-- Второй слайд -->
+			<div class="swiper-slide slider__item">
+				<!-- Слои с изображением, с параллакс-эффектом -->
+				<div class="slider__layer" data-swiper-parallax="40%" style="background-image: url(img/screen-2/layer-back.jpg);"></div>
+				<div class="slider__layer" data-swiper-parallax="34%" style="background-image: url(img/screen-2/layer-gera.png);"></div>
+				<div class="slider__layer" data-swiper-parallax="30%" style="background-image: url(img/screen-2/layer-yen.png);"></div>
+				<!-- Слой с анимацией частиц, с параллакс-эффектом -->
+				<canvas class="particles slider__layer" data-swiper-parallax="20%" data-color="#525A6D"></canvas>
+				<!-- Слой с изображением, с параллакс-эффектом -->
+				<div class="slider__layer" data-swiper-parallax="14%" style="background-image: url(img/screen-2/layer-front.png);"></div>
+			</div>
+
+			<!-- Третий слайд -->
+			<div class="swiper-slide slider__item">
+				<!-- Слои с изображением, с параллакс-эффектом -->
+				<div class="slider__layer" data-swiper-parallax="48%" style="background-image: url(img/screen-3/layer-back.jpg);"></div>
+				<div class="slider__layer" data-swiper-parallax="35%" style="background-image: url(img/screen-3/layer-middle.png);"></div>
+				<div class="slider__layer" data-swiper-parallax="29%" style="background-image: url(img/screen-3/layer-ciri.png);"></div>
+				<!-- Слой с анимацией частиц, с параллакс-эффектом -->
+				<canvas class="particles slider__layer" data-swiper-parallax="25%" data-color="#938086"></canvas>
+				<!-- Слой с изображением, с параллакс-эффектом -->
+				<div class="slider__layer" data-swiper-parallax="16%" style="background-image: url(img/screen-3/layer-front.png);"></div>
+			</div>
+
+			<div class="swiper-slide slider__item">
+				<!-- Слои с изображением, с параллакс-эффектом -->
+				<div class="slider__layer" data-swiper-parallax="48%" style="background-image: url(img/screen-4/layer-back.jpg);"></div>
+				<div class="slider__layer" data-swiper-parallax="35%" style="background-image: url(img/screen-4/layer-middle.png);"></div>
+				<!-- Слой с анимацией частиц, с параллакс-эффектом -->
+				<canvas class="particles slider__layer" data-swiper-parallax="25%" data-color="#938086"></canvas>
+				<!-- Слой с изображением, с параллакс-эффектом -->
+				<div class="slider__layer" data-swiper-parallax="16%" style="background-image: url(img/screen-4/layer-front.png);"></div>
+			</div>
+
+		</div>
+	</div>
+	
+</body>
+</html>

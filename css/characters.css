@@ -1,0 +1,287 @@
+/* Назначаем переменные */
+:root {
+	--text: #333;
+	--regular-text: 16px;
+	--lineheight: 1.65;
+	--userfont: masonchronicles-st, sans-serif;
+	--systemfont: -apple-system, BlinkMacSystemFont, Arial, sans-serif;
+	--padding: 120px;
+	--transition: cubic-bezier(.4, 0, 0, 1);
+}
+
+/* Раздел настроек библиотеки BOOTSTRAP */
+.container, .container-fluid, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl { --bs-gutter-x: .625rem; }
+.row, .row > * { --bs-gutter-x: 1.25rem; }
+
+/* Подключение шрифтов */
+@font-face { src: url("../fonts/assassin.woff2") format("woff2"); font-family: "assassin-st"; font-weight: 700; font-style: italic; }
+@font-face { src: url("../fonts/masonchronicles.ttf") format("truetype"); font-family: "masonchronicles-st"; font-weight: 700; font-style: italic; }
+
+/* Общие стили */
+::placeholder { color: #666; }
+::selection { background-color: #fff; }
+input, textarea { outline: none; }
+input:focus:required:invalid, textarea:focus:required:invalid { border-color: red; }
+input:required:valid, textarea:required:valid { border-color: green; }
+
+body {
+	font-family: var(--userfont);
+	font-size: var(--regular-text);
+	line-height: var(--lineheight);
+	color: var(--text);
+	min-width: 320px;
+	position: relative;
+	overflow-x: hidden;
+}
+
+body, html {
+	height: 100%;
+}
+
+.showcase {
+	background-color: #000;
+	/*height: 100%;*/
+	position: relative;
+	color: #fff;
+	/* overflow: hidden; */
+}
+/* Создание виньетки */
+.showcase::before {
+	content: '';
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	z-index: 1;
+	box-shadow: inset 0 0 500px #000;
+}
+
+/* Создание освещения */
+.showcase::after {
+	content: '';
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background-image: url(../img/light1.png);
+	background-size: cover;
+	background-repeat: no-repeat; 
+	background-position: center -65px;
+	animation: k-light 3s ease-in-out infinite;
+}
+
+/* Стилизация видео */
+.showcase__video {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	object-fit: cover; /* Масштабирование */
+	opacity: .60; /* Прозрачность видео */
+}
+
+.showcase__content-wrapper {
+	position: relative;
+	z-index: 2;
+	height: 100%;
+	padding: var(--padding) 0;
+}
+
+/* Стилизация сияния */
+.showcase__content-wrapper::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background-image: url(../img/glow.png);
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	animation: k-glow 1.6s ease-in-out infinite; /* Пульсация сияния */
+}
+.showcase__header {
+	/*position: absolute;*/
+	text-align: center;
+	width: 100%;
+	z-index: 1;
+	top: 40px;
+	font-family: masonchronicles-st, sans-serif;
+	font-size: 32px;
+	color: rgba(255, 255, 255, .75);
+}
+
+/* Стилизация карусели */
+.showcase-carousel .swiper-wrapper {
+	transition: var(--transition);
+}
+
+.showcase-carousel__item {
+	position: relative;
+	height: calc(100vh - var(--padding)*2);
+	text-align: center;
+	opacity: .25;
+	transform: scale(.75);
+	transition: opacity 1.8s var(--transition), transform 1.8s var(--transition)
+}
+.showcase-carousel__item::after {
+	content: '';
+	width: 120px;
+	height: 0;
+	position: absolute;
+	box-shadow: 0 0 45px 10px #010101;
+	bottom: 5px;
+	left: calc(50% - 60px);
+}
+.showcase-carousel__item p {
+	position: absolute;
+	bottom: -85px;
+	width: 100%;
+	font-family: masonchronicles-st, sans-serif;
+	font-size: 32px;
+	color: rgba(255, 255, 255, .5);
+	text-shadow: rgb(58 78 94) 0 0 10px;
+}
+
+/* Стилизация для активного слайдера */
+.showcase-carousel__item.swiper-slide-active {
+	opacity: .8;
+	transform: scale(.98);
+}
+.showcase-carousel__image-wrapper > * {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	perspective: 150px;
+	transform-style: preserve-3d;
+}
+.showcase-carousel__image {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background-size: contain;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+/* Стилизация левой части изображения */
+.showcase-carousel__image-left {
+	perspective-origin: left center;
+	clip-path: polygon(0 0, 50% 0, 50% 100%, 0 100%);
+}
+
+/* Стилизация правой части изображения */
+.showcase-carousel__image-right {
+	perspective-origin: right center;
+	clip-path: polygon(50% 0, 100% 0, 100% 100%, 50% 100%);
+	margin-left: -.55px
+}
+.showcase-carousel__image-left .showcase-carousel__image {
+	animation: k-left-side 2s ease-in-out infinite;
+	animation-direction: alternate;
+}
+.showcase-carousel__image-right .showcase-carousel__image {
+	animation: k-right-side 2s ease-in-out infinite;
+	animation-direction: alternate;
+}
+
+/* Стили навигации */
+.showcase-navigation {
+	overflow: hidden;
+	position: absolute;
+	z-index: 2;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+}
+.showcase-navigation > * {
+	position: absolute;
+	height: 100%;
+	width: 50%;
+	outline: none;
+	cursor: pointer;
+}
+.showcase-navigation__next {
+	right: 0;
+}
+.showcase-navigation > *::before {
+	content: '?';
+	font-family: assassin-st;
+	opacity: 0;
+	transition: opacity .75s ease-out;
+	position: absolute;
+	transform: rotate(-90deg);
+	left: 50px;
+	top: 50%;
+	font-size: 45px;
+}
+.showcase-navigation > *:hover::before {
+	opacity: .25;
+}
+.showcase-navigation__next::before {
+	transform: rotate(90deg);
+	right: 50px;
+	left: auto;
+}
+.showcase-navigation > *.swiper-button-disabled {
+	display: none;
+}
+
+/* Стили анимации */
+
+/* Анимация "света" */
+@keyframes k-light {
+	0% {
+		opacity: .2;
+	}
+	50% {
+		opacity: .3;
+	}
+	100% {
+		opacity: .2;
+	}
+}
+
+/* Анимация "сияния" */
+@keyframes k-glow {
+	0% {
+		opacity: .6;
+	}
+	50% {
+		opacity: .8;
+	}
+	100% {
+		opacity: .6;
+	}
+}
+
+/* Анимация для левой стороны персонажа */
+@keyframes k-left-side {
+	0% {
+		transform: rotateY(-1deg) scaleX(.92);
+	}
+	100% {
+		transform: rotateY(0deg) scaleX(1);
+	}
+}
+
+/* Анимация для правой стороны персонажа */
+@keyframes k-right-side {
+	0% {
+		transform: rotateY(0deg) scaleX(1);
+	}
+	100% {
+		transform: rotateY(1deg) scaleX(.92);
+	}
+}
+
+.top-line {
+	position: relative !important;
+}
+
+.top-line ul {
+	margin: 0 auto;
+}

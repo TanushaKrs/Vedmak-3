@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Ведьмак 3 — Открытый мир</title>
+
+	<link rel="icon" href="img/logo.png">
+	
+	<link rel="stylesheet" href="css/openworld.css">
+	<link rel="stylesheet" href="css/vars.css">
+	<link rel="stylesheet" href="css/grid.css">
+	<link rel="stylesheet" href="css/mainmenu.css">
+	<link rel="stylesheet" href="css/preloader.css">
+	<script src="js/openworld.js" defer></script> <!-- Скрипт будет работать только после загрузки страницы -->
+
+</head>
+<body>
+
+	<!-- Прелоадер -->
+	<div id="preloader">
+	    <div class="preloader-logo">
+	        <img src="img/logo preloader.png" alt="Логотип Ведьмак 3">
+	    </div>
+	</div>
+	
+		<div class="container">
+			<div class="top-line"> <!-- Верхний header -->
+				<div class="row"> <!-- Меню -->
+					<div class="col col--center">
+						<a href="index.html" class="logo">
+							<img src="img/logo-light.png" alt="Logo">
+						</a>
+					</div>
+				
+					<div class="col col--center col--right col--lead">
+						<nav class="main-menu">
+							<ul>
+								<li><a href="about.html" target="_blank">Об игре</a></li>
+									<li><a href="characters.html" target="_blank">Персонажи</a></li>
+									<li><a href="gallery.html" target="_blank">3D галерея</a></li>
+									<li><a href="openworld.html" target="_blank">Открытый мир</a></li>
+							</ul>
+						</nav>
+					</div>
+				
+				</div>
+			</div>
+		</div>
+	<!-- Основной контейнер для всей галереи -->
+	<div class="ow_container">
+		<section class="gallery"> <!-- Раздел с галереей -->
+
+			<div class="frame"> <!-- Первый кадр галереи -->
+				<div class="frame__content">
+					<h2>Безграничный Континент</h2>
+				</div>
+			</div>
+
+			<!-- Кадр с изображением слева -->
+			<div class="frame">
+				<div class="frame__content">
+					<div class="frame-media frame-media_left" style="background-image: url(img/ow_1.jpg)"></div>
+				</div>
+			</div>
+
+			<!-- Кадр с видео на фоне -->
+			<div class="frame frame_bg">
+				<div class="frame__content">
+					<video class="frame-media frame-media_right" src="videos/Beautiful World of The Witcher.mp4" autoplay loop muted></video>
+				</div>
+			</div>
+
+			<div class="frame"></div> <!-- Пустой кадр для отступа или разделения -->
+
+			<!-- Кадр с текстом справа -->
+			<div class="frame">
+				<div class="frame__content text-right">
+					<h3>Исследуй мир Континента</h3>
+					<p>Погрузись в огромный открытый мир, полный невероятных приключений и скрытых тайн. 
+					Сразись с опасными врагами, охоться на жутких чудовищ и находи сокровища в самых неожиданных местах.</p>
+				</div>
+			</div>
+
+			<!-- Кадр с изображением слева -->
+			<div class="frame frame_bg">
+				<div class="frame__content">
+					<div class="frame-media frame-media_left" style="background-image: url(img/ow_2.jpg)"></div>
+				</div>
+			</div>
+
+			<div class="frame"></div> <!-- Пустой кадр для отступа или разделения -->
+
+			<!-- Кадр с изображением справа -->
+			<div class="frame frame_bg">
+				<div class="frame__content">
+					<div class="frame-media frame-media_right" style="background-image: url(img/ow_3.jpg)"></div>
+				</div>
+			</div>
+
+			<div class="frame"></div> <!-- Пустой кадр для отступа или разделения -->
+
+			<!-- Кадр с текстом слева -->
+			<div class="frame">
+				<div class="frame__content text-left">
+					<h3>Магия и реальность</h3>
+					<p>Путешествуйте по местам, где магические существа и реалистичные пейзажи переплетаются, 
+					создавая неповторимую атмосферу таинственного мира Ведьмака.</p>
+				</div>
+			</div>
+
+			<!-- Кадр с изображением справа -->
+			<div class="frame frame_bg">
+				<div class="frame__content">
+					<div class="frame-media frame-media_right" style="background-image: url(img/ow_4.jpg)"></div>
+				</div>
+			</div>
+
+			<!-- Кадр с видео слева -->
+			<div class="frame">
+				<div class="frame__content">
+					<video class="frame-media frame-media_left" src="videos/Beautiful World of The Witcher.mp4" autoplay loop muted></video>
+				</div>
+			</div>
+
+			<!-- Пустой кадр для отступа или разделения -->
+			<div class="frame"></div>
+			<div class="frame"></div>
+
+			<!-- Кадр с изображением справа -->
+			<div class="frame frame_bg">
+				<div class="frame__content">
+					<div class="frame-media frame-media_right" style="background-image: url(img/ow_5.jpg)"></div>
+				</div>
+			</div>
+
+			<!-- Кадр с видео без дополнительных стилей -->
+			<div class="frame frame_bg">
+				<div class="frame__content">
+					<video class="frame-media" src="videos/Beautiful World of The Witcher.mp4" autoplay loop muted></video>
+				</div>
+			</div>
+
+			<!-- Пустые кадры для отступов или разделения -->
+			<div class="frame"></div>
+			<div class="frame"></div>
+
+			<!-- Последния страница -->
+			<div class="frame">
+				<div class="frame__content">© Ведьмак Дикая Охота</div>
+			</div>
+
+		</section>
+	</div>
+
+	<!-- Кнопка звука (звук включается/выключается при нажатии) -->
+	<img class="soundbutton paused" src="img/audio-wave-animation.gif" alt="Alt">
+	<!-- Вставляем аудиофайл, который будет воспроизводиться в цикле -->
+	<audio class="audio" src="media/Wild Hunt - Sword of Destiny.mp3" loop></audio>
+
+</body>
+</html>

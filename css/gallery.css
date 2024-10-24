@@ -1,0 +1,50 @@
+@import '../css/vars.css';
+/* Подключаем файл с переменными CSS */
+@import '../css/grid.css';
+/* Подключаем файл для сетки и выравнивания элементов */
+
+/* Сброс отступов и полей, устанавливаем box-sizing для всех элементов */
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+/* Устанавливаем высоту и фон для html и body */
+html, body {
+	height: 100%;
+	background-color: #000;
+}
+/* Определяем пользовательские переменные */
+:root {
+	--transition: 1.75s cubic-bezier(.2, .6, 0, 1); /* Определяем переменную для переходов с длительностью 1.75 секунды и пользовательской кривой Безье */
+}
+
+/* Основной контейнер слайдера */
+.slider {
+	height: 100%;
+}
+/* Стили для слоев слайдера */
+.slider__layer {
+	position: absolute;
+	inset: 0;
+	background-size: cover;
+	background-position: center;
+	will-change: transform;
+}
+/* Псевдоэлемент для создания затемнения и освещения */
+.slider__layer::before {
+	content: '';
+	position: absolute;
+	inset: 0;
+	z-index: 1;
+	box-shadow: inset 0 0 250px rgb(0 0 0 / .3);
+}
+/* Стили для отдельных слайдов */
+.slider__item {
+	overflow: hidden;
+}
+/* Обертка для всех слайдов */
+.slider__wrapper {
+	will-change: transform;
+	transform-style: preserve-3d;
+}

@@ -1,0 +1,206 @@
+@import '../css/vars.css';
+/* Подключаем файл с переменными CSS */
+@import '../css/grid.css';
+/* Подключаем файл для сетки и выравнивания элементов */
+
+/* Сброс стилей */
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+/* Определение переменных для глобального использования */
+:root {
+	--index: calc(1vw + 1vh);
+	/* Вычисляем переменную для адаптивных размеров */
+	--color-header: #f4efec;
+	--color-text: #cdc6c3;
+	--gallery-gap: calc(var(--index) * 7.5);
+	/* Расстояние между элементами галереи */
+}
+
+/* Подключение пользовательских шрифтов */
+@font-face {
+	font-family: GentiumPlus-c;
+	src: url(../fonts/GentiumPlus-Regular.ttf);
+}
+
+@font-face {
+	font-family: raleway-c;
+	src: url(../fonts/raleway-cyrillic.ttf);
+}
+
+@font-face {
+	font-family: masonchronicles;
+	src: url(../fonts/masonchronicles.ttf) format('truetype');
+}
+
+/* Применяем шрифт masonchronicles ко всем заголовкам */
+h1, h2, h3, h4, h5, h6 {
+	font-family: masonchronicles;
+}
+
+/* Оптимизация производительности при изменении элементов */
+.content, .hero, .main-header, .gallery>* {
+	will-change: transform;
+	/* Сообщаем браузеру о возможных изменениях состояния */
+}
+
+/* Стили для body */
+body {
+	background-image: url(../img/bg.jpg);
+	background-size: 50px;
+	color: #fafafa;
+	/* Цвет текста */
+	font-family: raleway-c;
+	/* Шрифт для основного текста */
+	overflow-x: hidden;
+}
+
+/* Стили для элемента hero */
+.hero {
+	width: calc(var(--index) * 28);
+	/* Ширина hero, основанная на переменной */
+	position: absolute;
+	left: 48vw;
+	top: 28vh;
+	z-index: -1;
+	/* Устанавливаем слой ниже остальных элементов */
+}
+
+/* Стили для основного заголовка */
+.main-header {
+	height: 100vh;
+	/* Высота заголовка равна высоте окна */
+}
+
+/* Стили для контейнера */
+.container {
+	padding: 0 7vw;
+}
+
+/* Стили для основного заголовка на странице */
+.main-title {
+	font-size: calc(var(--index) * 5);
+	/* Размер шрифта, основанный на переменной */
+	position: absolute;
+	width: min-content;
+	bottom: 10vh;
+	line-height: .9;
+}
+
+/* Стили для галереи */
+.gallery {
+	display: flex;
+	/* Используем флекс-контейнер для элементов галереи */
+	padding: calc(var(--index) * 8) 0;
+	/* Отступы галереи */
+}
+
+.gallery>* {
+	flex: 1;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+}
+
+/* Стили для отдельного элемента в галерее */
+.gallery__item {
+	max-width: calc(var(--index) * 21);
+	margin-bottom: var(--gallery-gap);
+	/* Отступ снизу между элементами */
+	max-height: 180vh;
+	border-radius: 8px;
+}
+
+/* Стили для галереи слева */
+.gallery__left {
+	margin-top: calc(var(--gallery-gap) * 1.75);
+	/* Отступ сверху */
+}
+
+/* Стили для галереи справа */
+.gallery__right .gallery__item {
+	margin: 0;
+	margin-top: var(--gallery-gap);
+	/* Отступ сверху между элементами */
+}
+
+/* Стили для текстовых блоков */
+.text-block {
+	color: var(--color-text);
+	/* Цвет текста, определенный переменной */
+	position: relative;
+}
+
+/* Стили для заголовков в текстовом блоке */
+.text-block__h {
+	font-size: 2rem;
+	line-height: 2.4rem;
+	color: var(--color-header);
+	/* Цвет заголовка, определенный переменной */
+	margin-bottom: 1.5rem;
+}
+
+/* Стили для абзацев в текстовом блоке */
+.text-block__p {
+	line-height: 1.75;
+}
+
+/* Медиа-запрос для экранов с шириной 360px и меньше */
+@media (max-width: 360px) {
+	.hero {
+		width: calc(var(--index) * 26);
+		/* Уменьшаем ширину */
+		left: 7vw;
+		/* Центрируем ближе к середине */
+		top: 10vh;
+		/* Уменьшаем отступ сверху */
+	}
+
+	.main-title {
+		font-size: calc(var(--index) * 3);
+		/* Уменьшаем размер шрифта заголовка */
+		bottom: 14vh;
+		/* Уменьшаем отступ снизу */
+	}
+
+	.gallery {
+		flex-direction: column;
+		/* Вертикальное размещение галереи */
+		padding: 0;
+		/* Убираем отступы галереи */
+	}
+
+	.gallery__item {
+		max-width: 90vw;
+		/* Увеличиваем ширину элементов до 90% экрана */
+		max-height: 60vh;
+		/* Уменьшаем высоту элементов */
+		margin-bottom: 1rem;
+		/* Увеличиваем отступ снизу */
+	}
+
+	.text-block__h {
+		font-size: 1.9rem;
+		/* Уменьшаем размер заголовков в текстовых блоках */
+	}
+
+	.text-block__p {
+		font-size: 1rem;
+		/* Уменьшаем размер основного текста */
+		line-height: 1.5;
+		/* Компактный межстрочный интервал */
+		color: var(--color-header);
+		/* Цвет заголовка, определенный переменной */
+		margin-bottom: 1.5rem;
+		/* Отступ снизу */
+	}
+
+	/* Стили для абзацев в текстовом блоке */
+	.text-block__p {
+		line-height: 1.75;
+		/* Высота строки для абзаца */
+	}
+}
